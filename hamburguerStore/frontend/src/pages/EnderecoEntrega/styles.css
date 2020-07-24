@@ -1,0 +1,125 @@
+.entrega-container{
+    width:  100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: row;
+    justify-content: flex-end;
+}
+
+.imageEntrega{
+    position: relative;
+    opacity: 60%;
+}
+
+.entrega-container .content{
+    width: 100%;
+    padding: 5%;
+    background: #f0f0f5;
+    box-shadow:  0 0 100px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    max-width: 1080px;
+
+    display: inline-flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    /* opacity: 0.5; */
+}
+
+.entrega-container .content::after{
+    content: "";
+    background-image: url("../../assets/merchanEntrega.png");
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.entrega-container .content section{
+    width: 100%;
+    max-width: 380px;
+    padding: 0 50px 60% 0;
+}
+
+.entrega-container .content section h1{
+    margin: 64px 0 32px;
+    font-size: 32px;
+}
+
+.entrega-container .content section p{
+    font-size: 18px;
+    color: #737380;
+    line-height: 32px;
+}
+
+.entrega-container .content form{
+    width: 100%;
+    max-width: 380px;
+}
+
+.entrega-container .content form input{
+    margin-top: 8px;
+}
+
+.entrega-container .content form .input-group{
+    display: flex;
+}
+
+.entrega-container .content form .input-group input + input{
+    margin-left: 8px;
+}
+
+#payments input{
+    font-size: medium !important;
+    size: 15px !important;
+    height: 20px !important;
+    width: 20px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    margin-top: 0 !important;
+}
+#payments label{
+    padding: 0 0 2px 10px;
+}
+
+#payments input label{
+    font-size: small !important;
+
+}
+
+.paymentLabel{
+   display: inline;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   /* align-items: flex-start; */
+   /* justify-content: flex-start; */
+}
+
+.paymentLabel textarea{
+        resize: none;
+        height: 30px !important;
+        max-width: 200px !important;
+        color: #333;
+        border: 1px solid #dcdce6;
+        border-radius: 8px;
+        padding: 16px 24px;
+        line-height: 24px;
+}
+
+/* #trocoPara{
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+} */
