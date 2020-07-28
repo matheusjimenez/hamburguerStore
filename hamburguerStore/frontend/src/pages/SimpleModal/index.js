@@ -73,7 +73,7 @@ export default function SimpleModal() {
 
   return (
     <div>
-      <button type="button" onClick={()=>{handleOpen}}>
+      <button type="button" onClick={()=>(handleOpen)}>
         Open Modal
       </button>
       <Modal

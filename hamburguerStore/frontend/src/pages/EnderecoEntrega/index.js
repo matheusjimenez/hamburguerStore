@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom'; //useHistory removido pra não me tiltar com warnings
 import { FiSkipBack, FiDollarSign, FiCreditCard } from 'react-icons/fi';
 
 import backGround from '../../assets/merchanEntrega.png'

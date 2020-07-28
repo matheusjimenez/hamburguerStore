@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2, FiPlus, FiMinus, FiX, FiShoppingCart, FiUnderline } from 'react-icons/fi';
-
+import React, { useState } from 'react';
+// import { Link, useHistory } from 'react-router-dom';
+// import { FiPower, FiTrash2, FiPlus, FiMinus, FiX, FiShoppingCart, FiUnderline } from 'react-icons/fi';
 
 import Carousel from 'react-bootstrap/Carousel';
 import Table from 'react-bootstrap/Table';
@@ -13,8 +12,7 @@ import logoImg from '../../assets/logo.png';
 import sliderFirstImage from '../../assets/slider1.png';
 import sliderSecondImage from '../../assets/merchanEntrega.png';
 import sliderThirdImage from '../../assets/royalImg.png';
-import defaultLanche from '../../assets/uploadedItens/Bacon.png'
-
+    
 import './styles.css';
 
 export default function MainMenu() {
@@ -41,7 +39,6 @@ export default function MainMenu() {
     function clearCart() {
         // localStorage.removeItem('shopping-cart');
     }
-
     return (
         <div className="corpo">
             <div className="page">
@@ -58,7 +55,7 @@ export default function MainMenu() {
                             <p className="txtCelula">Valor minimo de peddio: R$15,00</p>
                         </div>
                         <div className="celula" >
-                            <span class="dot" margin-top="50px"></span>
+                            <span className="dot" margin-top="50px"></span>
                             <p className="txtCelula">Aberto</p>
                         </div>
 
@@ -109,8 +106,8 @@ export default function MainMenu() {
                     <div className="navbar">
                         <a href="#home">Lanches</a>
                         <a href="#news">Bebidas</a>
-                        <div class="dropdown">
-                            <button class="dropbtn">Acompanhamento
+                        <div className="dropdown">
+                            <button className="dropbtn">Acompanhamento
                                     <i className="fa fa-caret-down"></i>
                             </button>
                             <div className="dropdown-content">
@@ -121,7 +118,7 @@ export default function MainMenu() {
                         </div>
                     </div>
 
-                    <Section2></Section2>
+                    <Section2 />
                 </div>
             </div>
         </div>
