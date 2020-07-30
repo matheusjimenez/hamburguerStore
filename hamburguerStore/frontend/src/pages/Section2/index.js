@@ -1,30 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { FiX, FiShoppingCart } from 'react-icons/fi';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { configure } from '@testing-library/react';
 
+//STORE
+import { getLanches } from '../../store/fetchActions'
+import { addItem, removeItem } from '../../store/ducks/cart';
+
+//Componentes e Style
 import SimpleModal from '../SimpleModal';
 import Table from 'react-bootstrap/Table';
 import CardLanche from '../../components/CardLanche'
-
-import { getLanches } from '../../store/fetchActions'
-
+import CardCart from "../../components/CardCart";
+import './styles.css';
 import defaultLanche from '../../assets/uploadedItens/Bacon.png'
 
-import './styles.css';
-import { configure } from '@testing-library/react';
 
 export default function Section2() {
-    let cartCount = parseInt(0);
-    const history = useHistory();
-    const [cart, setCart] = useState([]);
-    const [subTotal, setSubTotal] = useState();
-
     //REDUX
     const lanches = useSelector((state) => state.lanches);
+    const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
-
-    // console.log('esse é o subtotal '+ subTotal);
 
     useEffect(
         () => {
@@ -33,42 +28,18 @@ export default function Section2() {
         [dispatch]
     );
 
-    async function addToCart(productKey) {
-        // setCart(JSON.parse(localStorage.getItem('shopping-cart')));
-        await lanches.map(pedido => {
-            if (pedido.id == productKey) {
-                cart.push({
-                    "id": cartCount,
-                    "nome": pedido.nome_lanche,
-                    "Adicionais": "underconstruction",
-                    "valor": Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(pedido.valor_lanche),
-                    "cartCountId": cartCount
-                })
-                cartCount++;
-            }
-        }
+    function addToCart(item) {
+        dispatch(addItem(item));
+    }
 
-        );
-
-        if (isNaN(parseFloat(subTotal))) {
-            setSubTotal(parseFloat(0));
-            console.log('alo marciano');
-        }
-        if (localStorage.getItem('shopping-cart'))
-            JSON.parse(localStorage.getItem('shopping-cart'))
-                .map(pedido => {
-                    setSubTotal(parseFloat(subTotal) + parseFloat(pedido.valor));
-                })
-
-        // (cart);
-        localStorage.setItem('shopping-cart', JSON.stringify(cart));
-
+    function removeFromCart(lanche) {
+        dispatch(removeItem(lanche));
     }
 
     return (
         <div className="section2">
             <div className="menu">
-                {lanches.map((lanche, index) => <CardLanche key = {index} lanche={ lanche } />)}
+                {lanches.map((lanche, index) => <CardLanche key={index} lanche={lanche} addToCart={addToCart} />)}
             </div>
             <div className="container carrinho">
                 <center><h4>Carrinho</h4></center>
@@ -82,22 +53,15 @@ export default function Section2() {
                         </tr>
                     </thead>
                     <tbody>
-                        {cart.map(pedidos => (
-                            <tr key={pedidos.cartCountId}>
-                                <td>{pedidos.nome}</td>
-                                <td>1</td>
-                                <td>{pedidos.valor}</td>
-                                <td><button><FiX></FiX></button></td>
-                            </tr>
-                        ))}
+                        <React.Fragment>
+                            {cart.map((item) => <CardCart key={item._id} lanche={item} removeFromCart={removeFromCart} />)}
+                        </React.Fragment>
                     </tbody>
 
                 </Table>
                 <div className="fim">
-                    <p className="subtotal">Subtotal: R${subTotal}</p>
-                    <button onClick={() => {
-                        history.push('/endereco');
-                    }} className="butn btn-danger">Comprar</button>
+                    <p className="subtotal">Subtotal: R$pegadinha</p>
+                    <button className="butn btn-danger">Comprar</button>
                 </div>
             </div>
             <SimpleModal />

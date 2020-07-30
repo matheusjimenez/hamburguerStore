@@ -16,29 +16,29 @@ import sliderThirdImage from '../../assets/royalImg.png';
 import './styles.css';
 
 export default function MainMenu() {
-    let cartCount;
-    const [lanches, setLanches] = useState([]);
-    const [cart, setCart] = useState([]);
+    // let cartCount;
+    // const [lanches, setLanches] = useState([]);
+    // const [cart, setCart] = useState([]);
 
-    // setCart(JSON.parse(localStorage.getItem('shopping-cart')));
-    if (!(localStorage.getItem('shopping-cart'))) {
-        cartCount = 0;
-    }
-    else {
-        let cart = JSON.parse(localStorage.getItem('shopping-cart'));
-        cartCount = cart.length;
-    }
+    // // setCart(JSON.parse(localStorage.getItem('shopping-cart')));
+    // if (!(localStorage.getItem('shopping-cart'))) {
+    //     cartCount = 0;
+    // }
+    // else {
+    //     let cart = JSON.parse(localStorage.getItem('shopping-cart'));
+    //     cartCount = cart.length;
+    // }
     
 
-    async function handleDeleteFromCart(id) {
+    // async function handleDeleteFromCart(id) {
 
-        setLanches(lanches.filter(lanche => lanche.id !== id));
+    //     setLanches(lanches.filter(lanche => lanche.id !== id));
 
-    }
+    // }
 
-    function clearCart() {
-        // localStorage.removeItem('shopping-cart');
-    }
+    // function clearCart() {
+    //     // localStorage.removeItem('shopping-cart');
+    // }
     return (
         <div className="corpo">
             <div className="page">

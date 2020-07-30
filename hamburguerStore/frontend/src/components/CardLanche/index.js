@@ -14,10 +14,10 @@ export default function CardLanche({ lanche, addToCart }) {
                     <p>Burguer de Costela com Bacon, Queijo, Muito Bacon e Maionese.</p>
                 </div>
                 <div className="bottomAreaCard">
-                    <button /*onClick={() => { addToCart(lanche.id) }}*/ className="button">R$ 20,00</button>
+                    <button onClick={() => { addToCart(lanche) }} className="button">{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(lanche.valor_lanche)}</button>
                 </div>
             </div>
         </div>
     )
 }
-//{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(lanche.valor_lanche)}
+//
