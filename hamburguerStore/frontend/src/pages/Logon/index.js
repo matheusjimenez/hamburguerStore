@@ -14,7 +14,6 @@ export default function Logon() {
     const [senha, setSenha] = useState('');
     const history = useHistory();
 
-
     async function handleLogin(e){
         e.preventDefault();
 
