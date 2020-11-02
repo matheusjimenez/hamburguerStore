@@ -32,7 +32,7 @@ export default function Carrinho({ lanche, addToCart }) {
                 </thead>
                 <tbody>
                     <React.Fragment>
-                        {cart.map((item) => <CardCart key={item._id} lanche={item} removeFromCart={removeFromCart} />)}
+                        {cart.map((item) => <CardCart key={item.id} lanche={item} removeFromCart={removeFromCart} />)}
                     </React.Fragment>
                 </tbody>
 

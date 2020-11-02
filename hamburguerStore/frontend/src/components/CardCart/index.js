@@ -9,7 +9,7 @@ export default function CardCart({ lanche, removeFromCart }) {
             <td>jacare</td>
             <td>{lanche.valor_lanche}</td>
             <td><button
-             onClick={() => removeFromCart(lanche._id)}>
+             onClick={() => removeFromCart(lanche.id)}>
                 <FiX></FiX></button></td>
         </tr>
     )

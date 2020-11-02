@@ -35,8 +35,6 @@ export default function Section2() {
             </div>
 
             <Carrinho/>
-
-            <SimpleModal />
         </div>
 
     );

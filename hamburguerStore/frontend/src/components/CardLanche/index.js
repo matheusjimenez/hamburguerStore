@@ -21,4 +21,3 @@ export default function CardLanche({ lanche, addToCart }) {
         </div>
     )
 }
-//

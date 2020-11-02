@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import {  FiPlus, FiMinus} from 'react-icons/fi';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 
 import './styles.css';
 
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal({ lanche }) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -72,10 +72,11 @@ export default function SimpleModal() {
   );
 
   return (
-    <div>
-      <button type="button" onClick={()=>(handleOpen)}>
-        Open Modal
-      </button>
+    <div className="bottomAreaCard">
+      <button onClick={() => { handleOpen() }}
+        className="button">{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
+          .format(lanche)}</button>
+
       <Modal
         open={open}
         onClose={handleClose}
